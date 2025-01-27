@@ -1,0 +1,194 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Doctors</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif,white;
+            margin: 0;
+            padding: 100px;
+            color: white;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        input, button {
+            padding: 10px;
+            width: 100%;
+            max-width: 300px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+            
+        }
+        th {
+            background-color: #f4f4f4;
+            color: black;
+        }
+        .error {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Find Doctors in Your Area</h1>
+
+    
+    <form method="get">
+        <label for="city">City</label>
+        <input type="text" id="city" name="city" required>
+        
+        <label for="specialty">Specialty</label>
+        <input type="text" id="specialty" name="specialty" required>
+        
+        <button type="submit">Search</button>
+    </form>
+    
+    {% if error %}
+        <div class="error">{{ error }}</div>
+    {% endif %}
+    
+    {% if doctors %}
+        <div id="results">
+            <table id="results-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Address</th>
+                        <th>Rating</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for doctor in doctors %}
+                        <tr>
+                            <td>{{ doctor.name }}</td>
+                            <td>{{ doctor.address }}</td>
+                            <td>{{ doctor.rating }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% endif %}
+</body>
+</html>  -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Doctors</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif,white;
+            margin: 0;
+            padding: 0px 50px;
+            color: white;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        form {
+            overflow: auto;
+        }
+
+/* For Webkit-based browsers (Chrome, Safari, Edge) */
+        *::-webkit-scrollbar {
+            display: none;
+        }
+        
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        input, button {
+            padding: 10px;
+            width: 100%;
+            max-width: 300px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+            
+        }
+        th {
+            background-color: #f4f4f4;
+            color: black;
+        }
+        .error {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Find Doctors in Your Area</h1>
+
+    
+    <form method="get">
+        <label for="city">City</label>
+        <input type="text" id="city" name="city" required>
+        
+        <label for="specialty">Specialty</label>
+        <input type="text" id="specialty" name="specialty" required>
+        
+        <button type="submit">Search</button>
+    </form>
+    
+    {% if error %}
+        <div class="error">{{ error }}</div>
+    {% endif %}
+    
+    {% if doctors %}
+        <div id="results">
+            <table id="results-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Address</th>
+                        <th>Rating</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for doctor in doctors %}
+                        <tr>
+                            <td>{{ doctor.name }}</td>
+                            <td>{{ doctor.address }}</td>
+                            <td>{{ doctor.rating }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% endif %}
+</body>
+</html>
+ 
+
+
