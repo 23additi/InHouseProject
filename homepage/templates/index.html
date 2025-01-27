@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="en-US" class="no-js">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Management System</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file -->
+    <style>
+        /* Allow scrolling but hide scrollbar */
+        html {
+            overflow: auto;
+            scrollbar-width: none; /* For Firefox */
+        }
+
+        html::-webkit-scrollbar {
+            display: none; /* For Chrome, Safari, Edge */
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background:url(/static/image.jpg);
+            background-size: cover;
+            color: #333;
+        }
+
+        header {
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+
+        header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        header nav {
+            display: flex;
+            gap: 15px;
+        }
+
+        header nav button {
+            background-color: white;
+            color: #007bff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        header nav button:hover {
+            background-color: #0056b3;
+            color: white;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 10px 10px;
+            color: white;
+            background: rgba(0, 0, 0, 0.5);
+            margin-bottom: 20px;
+        }
+
+        .hero h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        .hero button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 14px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .hero button:hover {
+            background-color: #0056b3;
+        }
+
+        main {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .row {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .row:nth-child(2) {
+            justify-content: center;
+        }
+
+        section {
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 5px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            flex: 1 1 calc(33% - 20px);
+            max-width: 300px;
+        }
+
+        section:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        section h2 {
+            margin: 10px 0;
+        }
+
+        section p {
+            color: #555;
+        }
+
+        section button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        section button:hover {
+            background-color: #0056b3;
+        }
+
+        footer {
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 14px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Health Management System</h1>
+        <nav>
+            <button>About us</button>
+            <!-- <button>Login</button>
+            <button>Signup</button> -->
+            <button>Contact Us</button>
+
+        </nav>
+    </header>
+
+    <div class="hero">
+        <h2>Welcome to Your Health Companion</h2>
+        <!-- <p>"Health is the greatest gift, contentment the greatest wealth, faithfulness the best relationship."</p> -->
+        <!-- <button>Let&rsquo;s Get Started</button> -->
+    </div>
+
+    <main>
+        <div class="row">
+            <!-- EHR Module -->
+            <section id="ehr">
+                <img src="/static/ehr.webp" alt="EHR Icon" style="width:50px; height:50px;">
+                <h2>Electronic Health Records (EHR)</h2>
+                <p>Manage and access patient records securely and efficiently.</p>
+                <button>View Records</button>
+                <button>Add New Record</button>
+            </section>
+
+            <!-- Disease Prediction Module -->
+            <section id="disease-prediction">
+                <img src="/static/disease.webp" alt="Disease Icon" style="width:50px; height:50px;">
+                <h2>Disease Prediction</h2>
+                <p>Analyze symptoms to predict potential diseases using advanced AI algorithms.</p>
+                <button>Start Prediction</button>
+            </section>
+
+            <!-- Diet Recommendation Module -->
+            <section id="diet-recommendation">
+                <img src="/static/diet.webp" alt="Diet Icon" style="width:50px; height:50px;">
+                <h2>Diet Recommendation</h2>
+                <p>Receive personalized diet plans based on your health data.</p>
+                <a href="diet"> 
+                <button>Get Diet Plan</button>
+                </a>
+            </section>
+        </div>
+
+        <div class="row">
+            <!-- Find Doctor Module -->
+            <section id="find-doctor">
+                <img src="/static/doctor.webp" alt="Doctor Icon" style="width:50px; height:50px;">
+                <h2>Find a Doctor</h2>
+                <p>Search for the best doctors and specialists near you.</p>
+                <!-- Link to doctor.html -->
+                <a href="find_doctor"> 
+                    <button>Search Doctors</button>
+                </a>
+                                              
+            </section>
+
+            <!-- Review and Feedback Module -->
+            <section id="review-feedback">
+                <img src="/static/feedback.webp" alt="Feedback Icon" style="width:50px; height:50px;">
+                <h2>Review & Feedback</h2>
+                <p>Provide feedback on our services and help us improve.</p>
+                <a href="feedback">
+                <button>Submit Feedback</button>
+                </a>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Health Management System. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>
