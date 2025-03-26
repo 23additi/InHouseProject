@@ -1,0 +1,258 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Doctors</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif,white;
+            margin: 0;
+            padding: 100px;
+            color: white;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        input, button {
+            padding: 10px;
+            width: 100%;
+            max-width: 300px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+            
+        }
+        th {
+            background-color: #f4f4f4;
+            color: black;
+        }
+        .error {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Find Doctors in Your Area</h1>
+
+    
+    <form method="get">
+        <label for="city">City</label>
+        <input type="text" id="city" name="city" required>
+        
+        <label for="specialty">Specialty</label>
+        <input type="text" id="specialty" name="specialty" required>
+        
+        <button type="submit">Search</button>
+    </form>
+    
+    {% if error %}
+        <div class="error">{{ error }}</div>
+    {% endif %}
+    
+    {% if doctors %}
+        <div id="results">
+            <table id="results-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Address</th>
+                        <th>Rating</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for doctor in doctors %}
+                        <tr>
+                            <td>{{ doctor.name }}</td>
+                            <td>{{ doctor.address }}</td>
+                            <td>{{ doctor.rating }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% endif %}
+</body>
+</html>  -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Doctors</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif,white;
+            margin: 0;
+            padding: 0px 50px;
+            color: white;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        form {
+            overflow: auto;
+        }
+
+/* For Webkit-based browsers (Chrome, Safari, Edge) */
+        *::-webkit-scrollbar {
+            display: none;
+        }
+        
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        input, button {
+            padding: 10px;
+            width: 100%;
+            max-width: 300px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+            
+        }
+        th {
+            background-color: #f4f4f4;
+            color: black;
+        }
+        .error {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Find Doctors in Your Area</h1>
+
+    
+    <form method="get">
+        <label for="city">City</label>
+        <input type="text" id="city" name="city" required>
+        
+        <label for="specialty">Specialty</label>
+        <input type="text" id="specialty" name="specialty" required>
+        
+        <button type="submit">Search</button>
+    </form>
+    
+    <!-- {% if error %}
+        <div class="error">{{ error }}</div>
+    {% endif %}
+    
+    {% if doctors %}
+        <div id="results">
+            <table id="results-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Address</th>
+                        <th>Rating</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for doctor in doctors %}
+                        <tr>
+                            <td>{{ doctor.name }}</td>
+                            <td>{{ doctor.address }}</td>
+                            <td>{{ doctor.rating }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% endif %} -->
+    {% if error %}
+        <div class="error">{{ error }}</div>
+    {% endif %}
+
+    <div id="results">
+        {% if doctors %}
+       
+        <form id="saveForm" action="/save_selected" method="post">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Select</th>
+                        <th>Name</th>
+                        <th>Address</th>
+                        <th>Rating</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for doctor in doctors | sort(attribute='rating', reverse=True) %}
+                        <tr>
+                            <td>
+                                <input type="checkbox" name="selected_doctors" value="{{ loop.index }}">
+                                <input type="hidden" name="name_{{ loop.index }}" value="{{ doctor.name }}">
+                                <input type="hidden" name="address_{{ loop.index }}" value="{{ doctor.address }}">
+                                <input type="hidden" name="rating_{{ loop.index }}" value="{{ doctor.rating }}">
+                            </td>
+                            <td>{{ doctor.name }}</td>
+                            <td>{{ doctor.address }}</td>
+                            <td>{{ doctor.rating }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <button type="submit">Save Selected</button>
+        </form>
+        
+        {% endif %}
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('saveForm');
+    form.addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const formData = new FormData(form);
+        console.log("Form Data:", Object.fromEntries(formData.entries())); // Debugging
+
+        fetch('/save_selected', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.text())
+        .then(data => {
+            alert("Response: " + data);
+            window.top.location.href = "/home";
+        })
+        .catch(error => {
+            console.error("Error saving data:", error);
+            alert("Error saving data, please try again.");
+        });
+    });
+});
+
+        </script>
+    </div>
+</body>
+</html>
+ 
+
+

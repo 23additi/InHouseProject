@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthcare Management Login</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-image: url('/static/image.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+        }
+
+        .container {
+            display: flex;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+            max-width: 550px;
+            width: 90%;
+            height: 400px;
+        }
+
+        /* .image-section {
+            flex: 1;
+            background: url('doctor-image.png') no-repeat center center;
+            background-size: cover;
+        } */
+
+        .form-section {
+            flex: 1;
+            padding: 50px 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            color: #333;
+        }
+
+        .form-section h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #1e90ff;
+        }
+
+        .form-section label {
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        .form-section input {
+            padding: 10px;
+            margin-bottom: 10px;
+            width: 95%;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .form-section button {
+            background: #1e90ff;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .form-section button:hover {
+            background: #0a74da;
+        }
+
+        .form-section .links {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .form-section .links a {
+            color: #1e90ff;
+            text-decoration: none;
+        }
+
+        .form-section .links a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<!-- <body>
+    <div class="container">
+        <div class="image-section"></div>
+        <div class="form-section">
+            <h2><center>Login to Healthcare System</center></h2>
+            <form action="{{ url_for('login') }}" method="POST">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                
+                <div class="links">
+                <!-- <center><button type="submit">Login</button></center> 
+            <center><button type="submit"><a href="/profile">Login</a></button></center>
+                
+                    <a href="#">Forgot Password?</a> | <a href="/">Create Account</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</body> -->
+<body>
+    <div class="container">
+        <div class="form-section">
+            <h2><center>Login to Healthcare System</center></h2>
+            <p id="loginError" class="error-message"></p>
+            <form id="loginForm">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                
+                <button type="submit">Login</button>
+                
+                <div class="links">
+                    <a href="#">Forgot Password?</a> | <a href="/">Create Account</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', async function(event) {
+    event.preventDefault();  // Prevent default form submission
+
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+
+    try {
+        const response = await fetch('/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',  // ✅ Required for JSON
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify({ email, password })  // ✅ Convert to JSON
+        });
+
+        console.log("Response received:", response); // Debugging step
+
+        if (!response.ok) {
+            const errorData = await response.json();
+            throw new Error(errorData.message || "Login failed!");
+        }
+
+        const data = await response.json();
+        console.log("Parsed response data:", data); // Debugging step
+
+        if (data.success) {
+            alert(data.message);
+            window.location.href = data.redirect; // ✅ Redirect to profile page
+        } else {
+            alert(data.message);
+        }
+    } catch (error) {
+        console.error("Error:", error);
+        alert(`Error: ${error.message}`);
+    }
+});
+
+        </script>
+        
+        
+        
+</body>
+</html>

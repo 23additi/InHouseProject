@@ -1,0 +1,19 @@
+Meal,Food Item,Calories,Nutrients
+Breakfast,Vegetable Poha,250,Carbohydrates, Vitamins (A,C), Minerals (Iron, Potassium)
+Breakfast,Spiced Chickpea Omelette (using tofu),300,Protein, Healthy Fats, Iron, Fiber
+Breakfast,Aloo Paratha (Potato Stuffed Flatbread),350,Carbohydrates, Protein, Vitamins (B), Fiber
+Lunch,Dal Makhani (Black Lentil Curry),200,Protein, Fiber, Iron, Folate
+Lunch,Mixed Vegetable Curry (with Spinach, Potatoes, Peas),150,Vitamins (A,C,K), Fiber, Potassium
+Lunch,Jeera Rice (Cumin Rice),200,Carbohydrates, Minerals (Magnesium)
+Lunch,Roti (Whole Wheat Flatbread),100,Carbohydrates, Fiber
+Dinner,Paneer Tikka Masala (Indian Cheese in Tomato Sauce),300,Protein, Calcium, Vitamins (A,C)
+Dinner,Rajma Chawal (Kidney Bean Curry with Rice),350,Protein, Fiber, Iron, Potassium
+Dinner,Palak Paneer (Spinach and Cheese Curry),280,Protein, Iron, Vitamins (A,C,K)
+Dinner,Roti (Whole Wheat Flatbread),100,Carbohydrates, Fiber
+Snack,Mixed Nuts (Almonds, Cashews, Walnuts),200,Healthy Fats, Protein, Fiber, Vitamins (E)
+Snack,Fruit Salad (Mango, Banana, Apple),150,Vitamins (A,C), Fiber
+Snack,Spiced Chickpeas,100,Protein, Fiber
+Snack,Peanut Chikki,150,Carbohydrates, Protein, Healthy Fats
+""
+""
+"**Note:** Calorie counts are approximate and can vary based on the ingredients and portion sizes used.  The ""Nutrients"" column provides a general idea and is not exhaustive.  A more precise nutrient breakdown would require specific recipes and ingredient quantities.  This meal plan offers variety within the framework of North Indian vegetarian cuisine.  Adjust portion sizes to meet individual caloric needs."

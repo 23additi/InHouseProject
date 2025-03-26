@@ -1,0 +1,1704 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sanjeevani</title>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        :root {
+            --primary-blue: #0066cc;
+            --dark-blue: #001c33;
+            --light-blue: #00a3e0;
+            --glow-blue: #00ccff;
+            --deep-navy: #000f1c;
+            --medium-blue: #003366;
+            --accent-blue: #0099cc;
+            --light-gray: #f5f7fb;
+            --dark-gray: #4a4a4a;
+            --white: #ffffff;
+            --black: #1a1a1a;
+            --transition: all 0.3s ease-in-out;
+        }
+
+        body {
+            color: var(--primary-blue);
+            background-color: var(--deep-navy);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: white;
+        }
+
+        h4 {
+            color: var(--light-blue);
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+            color: var(--light-gray);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .btn-a {
+            display: inline-block;
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: var(--transition);
+            cursor: pointer;
+            text-align: center;
+            border: none;
+            font-size: 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .white-btn {
+            background-color: var(--white);
+            color: var(--primary-blue);
+            border: 2px solid var(--light-blue);
+        }
+
+        .white-btn:hover {
+            background-color: var(--primary-blue);
+            color: var(--white);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 204, 255, 0.4);
+        }
+
+        .blue-btn {
+            background: linear-gradient(135deg, var(--primary-blue), var(--light-blue));
+            color: var(--white);
+            box-shadow: 0 5px 15px rgba(0, 204, 255, 0.3);
+        }
+
+        .blue-btn:hover {
+            background: linear-gradient(135deg, var(--light-blue), var(--primary-blue));
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 204, 255, 0.5);
+        }
+
+        /* Header and Navigation */
+        header {
+            background: url(/static/image.jpg);
+            box-shadow: 0 2px 10px rgba(0, 204, 255, 0.15);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(0, 204, 255, 0.2);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start; /* Aligns to the left */
+            margin-left: 0; /* Ensures it's at the left-most position */
+        }
+
+        .logo img {
+            height: 45px; /* Increase size */
+            width: auto; /* Maintain aspect ratio */
+        }
+
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-menu li {
+            margin-left: 2rem;
+        }
+
+        .nav-menu li a {
+            color: var(--light-gray);
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .nav-menu li a:hover, 
+        .nav-menu li a.active {
+            color: var(--glow-blue);
+            text-shadow: 0 0 8px rgba(0, 204, 255, 0.6);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: var(--light-blue);
+        }
+
+        /* Landing Section */
+        .landing-section {
+            display: flex;
+            width: 100%;
+            min-height: 100vh;
+            padding: 0 5%;
+            background: linear-gradient(135deg, var(--deep-navy) 0%, var(--medium-blue) 100%);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .landing-section-left {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding-right: 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .landing-section-right {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        .landing-animation-section {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .landing-image {
+            max-width: 250px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+            transition: opacity 0.5s, transform 0.5s;
+        }
+
+
+        /* Typography styling */
+        .landing-section h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--white);
+            line-height: 1.2;
+        }
+
+        .landing-section h1 span {
+            color: var(--glow-blue);
+            position: relative;
+            text-shadow: 0 0 10px rgba(0, 204, 255, 0.8);
+        }
+
+        .landing-section h1 span::after {
+            content: "";
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--light-blue), var(--glow-blue));
+            border-radius: 2px;
+            box-shadow: 0 0 10px rgba(0, 204, 255, 0.8);
+        }
+
+        .landing-section-content p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: var(--light-gray);
+            margin-bottom: 2rem;
+            max-width: 90%;
+        }
+
+        /* Animation elements styling */
+        .landing-animation-section {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            opacity: 0.7;
+        }
+
+        .landing-image {
+            position: absolute;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 204, 255, 0.15);
+            border: 2px solid rgba(0, 204, 255, 0.2);
+        }
+
+        #landing-top-image {
+            width: 200px;
+            top: 15%;
+            right: 10%;
+            animation: pulseFloat 6s ease-in-out infinite;
+        }
+
+        #landing-second-image {
+            width: 250px;
+            bottom: 20%;
+            right: 25%;
+            animation: pulseFloat 8s ease-in-out infinite 1s;
+        }
+
+        #landing-bottom-image {
+            width: 180px;
+            top: 45%;
+            right: 40%;
+            animation: pulseFloat 7s ease-in-out infinite 0.5s;
+        }
+
+        .landing-section-right img {
+            max-width: 90%;
+            height: auto;
+            filter: drop-shadow(0 0 30px rgba(0, 204, 255, 0.3));
+            animation: deviceFloat 5s ease-in-out infinite;
+        }
+
+        /* Hexagon background pattern */
+        .landing-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('path/to/hexagon-background.png'); /* You'll need to provide the correct path */
+            background-size: cover;
+            opacity: 0.2;
+            pointer-events: none;
+        }
+
+        /* Animations */
+        @keyframes pulseFloat {
+            0% {
+                transform: translateY(0px) rotate(0deg);
+                box-shadow: 0 0 15px rgba(0, 204, 255, 0.3);
+            }
+            50% {
+                transform: translateY(-15px) rotate(1deg);
+                box-shadow: 0 0 25px rgba(0, 204, 255, 0.5);
+            }
+            100% {
+                transform: translateY(0px) rotate(0deg);
+                box-shadow: 0 0 15px rgba(0, 204, 255, 0.3);
+            }
+        }
+
+        @keyframes deviceFloat {
+            0% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        @keyframes heartbeatGlow {
+            0% {
+                opacity: 0.7;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.05);
+            }
+            100% {
+                opacity: 0.7;
+                transform: scale(1);
+            }
+        }
+
+        /* Media queries for responsiveness */
+        @media (max-width: 992px) {
+            .landing-section {
+                flex-direction: column;
+                padding-top: 2rem;
+            }
+            
+            .landing-section-left {
+                padding-right: 0;
+                text-align: center;
+                margin-bottom: 3rem;
+            }
+            
+            .landing-section-content p {
+                max-width: 100%;
+            }
+            
+            .landing-section h1 {
+                font-size: 2.5rem;
+            }
+            
+            .landing-animation-section {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .landing-section h1 {
+                font-size: 2rem;
+            }
+            
+            .landing-section-right img {
+                max-width: 80%;
+            }
+        }
+        
+        /*Module section begins*/
+        .modules-section {
+            max-width: 1500px;
+            margin: 0 auto;
+            padding: 3rem 1rem;
+            background-image: url('/static/image.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .section-title {
+            position: relative;
+            margin-bottom: 4rem;
+            text-align: center;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: var(--light-blue);
+            box-shadow: 0 0 10px var(--glow-blue);
+        }
+        .primary-modules,
+        .secondary-modules {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        .module-card {
+            width: 500px;
+            background: rgba(0, 51, 102, 0.6);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: var(--transition);
+            position: relative;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid rgba(0, 204, 255, 0.1);
+        }
+        .module-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 204, 255, 0.2);
+            border: 1px solid var(--glow-blue);
+        }
+        .module-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0, 10, 20, 0.3), rgba(0, 51, 102, 0.8));
+            z-index: 1;
+            opacity: 0.8;
+            transition: var(--transition);
+        }
+        .module-card:hover::before {
+            opacity: 0.6;
+        }
+        .module-img {
+            height: 180px;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+        .module-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        .module-card:hover .module-img img {
+            transform: scale(1.1);
+        }
+        .module-content {
+            padding: 1.5rem;
+            position: relative;
+            z-index: 2;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .module-title {
+            font-size: 1.5rem;
+            color: var(--white);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+        .module-desc {
+            color: var(--light-gray);
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+            opacity: 0.9;
+            flex-grow: 1;
+        }
+        .module-btn {
+            background: var(--primary-blue);
+            color: var(--white);
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 30px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            display: inline-block;
+            text-align: center;
+            text-decoration: none;
+            box-shadow: 0 2px 10px rgba(0, 102, 204, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        .module-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: var(--transition);
+        }
+        .module-btn:hover {
+            background: var(--light-blue);
+            box-shadow: 0 5px 15px rgba(0, 163, 224, 0.5);
+        }
+        .module-btn:hover::before {
+            left: 100%;
+            transition: 0.7s;
+        }
+        .pulse {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 15px;
+            height: 15px;
+            background-color: var(--glow-blue);
+            border-radius: 50%;
+            z-index: 3;
+            box-shadow: 0 0 10px var(--glow-blue);
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% {
+                transform: scale(0.95);
+                box-shadow: 0 0 0 0 rgba(0, 204, 255, 0.7);
+            }
+            70% {
+                transform: scale(1);
+                box-shadow: 0 0 0 10px rgba(0, 204, 255, 0);
+            }
+            100% {
+                transform: scale(0.95);
+                box-shadow: 0 0 0 0 rgba(0, 204, 255, 0);
+            }
+        }
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        .highlighted {
+            border: 2px solid var(--glow-blue);
+            box-shadow: 0 5px 25px rgba(0, 204, 255, 0.3);
+        }
+        .btn-container {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+        }
+        @media (max-width: 992px) {
+            .primary-modules {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .secondary-modules {
+                width: 100%;
+                margin-left: 0;
+            }
+        }
+        @media (max-width: 768px) {
+            .primary-modules,
+            .secondary-modules {
+                grid-template-columns: 1fr;
+            }
+            h2 {
+                font-size: 2rem;
+            }
+            .btn-container {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .module-btn {
+                width: 100%;
+            }
+        }
+        /* First Section / About Section */
+        .first-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            padding: 5rem 10%;
+            background-color: var(--deep-navy);
+            background-image: url('path/to/heartbeat-background.jpg'); /* This is where we'll insert the image */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            min-height: 80vh;
+            align-items: center;
+            position: relative;
+        }
+
+        .first-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0, 15, 28, 0.85), rgba(0, 51, 102, 0.85));
+            z-index: 1;
+        }
+
+        .second-section-left {
+            padding-right: 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .second-section-left h2 {
+            font-size: 3rem;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            color: var(--white);
+        }
+
+        .second-section-left p {
+            color: var(--light-gray);
+        }
+
+        .second-section-right {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(3, 1fr);
+            gap: 1.5rem;
+            position: relative;
+            height: 100%;
+            z-index: 2;
+        }
+
+        .health-card, .wellbeing-card, .yoga-card, .care-card {
+            overflow: hidden;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 204, 255, 0.15);
+            transition: var(--transition);
+            position: relative;
+            border: 1px solid rgba(0, 204, 255, 0.2);
+        }
+
+        .health-card:hover, .wellbeing-card:hover, .yoga-card:hover, .care-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 204, 255, 0.3);
+        }
+
+        .health-card img, .wellbeing-card img, .yoga-card img, .care-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .health-card img:hover, .wellbeing-card img:hover, .yoga-card img:hover, .care-card img:hover {
+            transform: scale(1.05);
+        }
+
+        .health-card:nth-child(1) {
+            grid-column: 1 / 2;
+            grid-row: 1 / 2;
+        }
+
+        .wellbeing-card {
+            grid-column: 2 / 4;
+            grid-row: 1 / 3;
+        }
+
+        .health-card:nth-child(3) {
+            grid-column: 1 / 2;
+            grid-row: 2 / 4;
+        }
+
+        .yoga-card {
+            grid-column: 2 / 3;
+            grid-row: 3 / 4;
+        }
+
+        .care-card {
+            grid-column: 3 / 4;
+            grid-row: 3 / 4;
+        }
+
+        /* Heartbeat line that mimics the image */
+        .heartbeat-animation {
+            position: absolute;
+            bottom: 10%;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--glow-blue);
+            z-index: 3;
+            box-shadow: 0 0 20px 5px rgba(0, 204, 255, 0.7);
+            animation: heartbeat 1.5s ease-in-out infinite;
+        }
+
+        @keyframes heartbeat {
+            0% {
+                opacity: 0.5;
+                height: 3px;
+            }
+            20% {
+                opacity: 1;
+                height: 3px;
+            }
+            30% {
+                opacity: 1;
+                height: 15px;
+            }
+            40% {
+                opacity: 1;
+                height: 3px;
+            }
+            50% {
+                opacity: 1;
+                height: 3px;
+            }
+            60% {
+                opacity: 1;
+                height: 30px;
+            }
+            70% {
+                opacity: 1;
+                height: 3px;
+            }
+            100% {
+                opacity: 0.5;
+                height: 3px;
+            }
+        }
+
+        /* Why Us Section */
+        .Why-us {
+            padding: 50px;
+            background-color: #e6eef1;
+            text-align: center;
+        }
+        .Why-us h1 {
+            margin-bottom: 2rem;
+            font-size: 5rem;
+            color: rgb(38, 142, 201);
+        }
+
+        .Why-us h2 {
+            margin-top: 1rem;
+            margin-bottom: 3rem;
+            font-size: 3.5rem;
+            color: rgb(8, 37, 73);
+        }
+
+        .health-calulator-bottom {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+
+        .health-calculator-bottom-left,
+        .health-calculator-bottom-right {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .health-calculator-bottom-center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .health-calculator-bottom-center img {
+            max-width: 80%;
+            border-radius: 50%;
+            box-shadow: 0 15px 40px rgba(46, 92, 185, 0.2);
+            transition: var(--transition);
+        }
+
+        .health-calculator-bottom-center img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 20px 50px rgba(46, 92, 185, 0.3);
+        }
+
+        .feature-card {
+            background-color: rgba(236, 242, 243, 0.7);
+            border-radius: 16px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            text-align: left;
+            color: var(--dark-blue);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(46, 92, 185, 0.1);
+        }
+
+        .feature-card-top {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card-top img {
+            width: 40px;
+            height: 40px;
+            margin-right: 1rem;
+        }
+
+        .feature-card-top h4 {
+            margin-bottom: 0;
+            color: var(--dark-blue);
+        }
+
+        .feature-card-bottom p {
+            color: var(--dark-blue);
+            font-size: 0.9rem;
+            margin-bottom: 0;
+        
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 5rem 10%;
+            background-color: var(--dark-blue);
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: flex-start;
+        }
+
+        .faq-section-left h2 {
+            font-size: 2.5rem;
+            line-height: 1.2;
+            position: sticky;
+            top: 5rem;
+        }
+
+        .faq-container {
+            max-width: 800px;
+        }
+
+        .faq {
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid var(--light-blue);
+            padding-bottom: 1.5rem;
+        }
+
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--light-blue);
+            font-size: 1.1rem;
+        }
+
+        .arrow {
+            transition: var(--transition);
+            color: var(--primary-blue);
+        }
+
+        .faq-question:hover .arrow {
+            transform: translateY(3px);
+        }
+
+        .faq-answer {
+            margin-top: 1rem;
+            display: none;
+            color: var(--dark-gray);
+            padding-left: 1rem;
+            border-left: 3px solid var(--primary-blue);
+        }
+
+        .faq.active .faq-answer {
+            display: block;
+        }
+
+        .faq.active .arrow {
+            transform: rotate(180deg);
+        }
+
+        /* Testimonials Section */
+        #testimonials {
+            padding: 5px 10%;
+            background-color: #e6eef1;
+            position: relative;
+            overflow: hidden;
+        }
+        .testimonial-section {
+            position: relative;
+            margin-bottom: 8rem;
+            text-align: center;
+        }
+        .testimonial-section h2 {
+            color: var(--dark-blue);
+            font-size: 3.5rem;
+            line-height: 1.1;
+            margin-bottom: 2rem;
+            margin-top: 5rem;
+        }
+        .testimonial-section p {
+            color: #333333;
+            width: 80%;
+            max-width: 800px;
+            margin: 0 auto 5rem auto; /* Center the paragraph with auto margins */
+            line-height: 1.6;
+            font-size: 1.1rem;
+            text-align: center; 
+        }
+        .testimonial-line {
+            position: absolute;
+            width: 80%;
+            top: 50%;
+            left: 10%;
+            opacity: 0.5;
+            z-index: 0;
+        }
+        .testimonial-container {
+            position: relative;
+            width: 100%;
+            height: 400px;
+        }
+        .testimonial-card {
+            position: absolute;
+            transition: var(--transition);
+            z-index: 1;
+            cursor: pointer;
+        }
+        .testimonial-card img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            border: 4px solid var(--white);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        .testimonial-card:hover img {
+            transform: scale(1.1);
+        }
+        .testimonial-box {
+            display: none;
+            position: absolute;
+            background-color: var(--white);
+            padding: 1.5rem;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(46, 92, 185, 0.2);
+            font-weight: 600;
+            color: var(--dark-blue);
+            width: 250px;
+            z-index: 100;
+            left: 50%;
+            transform: translateX(-50%);
+            top: 100px;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+        .testimonial-box::before {
+            content: "";
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            margin-left: -10px;
+            width: 20px;
+            height: 20px;
+            background-color: var(--white);
+            transform: rotate(45deg);
+            z-index: -1;
+        }
+        .testimonial-box.active {
+            display: block;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateX(-50%) translateY(10px); }
+            to { opacity: 1; transform: translateX(-50%) translateY(0); }
+        }
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 90;
+        }
+        .overlay.active {
+            display: block;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #222;
+            color: var(--white);
+            padding: 2rem 10% ;
+        }
+
+        .footer-upper {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-column h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--white);
+            font-weight: 600;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 1rem;
+        }
+
+        .footer-column ul li a {
+            color: var(--white);
+            transition: var(--transition);
+        }
+
+        .footer-column ul li a:hover {
+            color: var(--white);
+            padding-left: 5px;
+        }
+
+        .newsletter .subscribe {
+            display: flex;
+            margin-bottom: 1.5rem;
+        }
+
+        .newsletter input {
+            flex: 1;
+            padding: 12px 20px;
+            border-radius: 30px 0 0 30px;
+            border: none;
+            outline: none;
+            font-size: 1rem;
+        }
+
+        .newsletter button {
+            border-radius: 0 30px 30px 0;
+            padding: 0 20px;
+            background-color: rgb(22, 96, 187);
+            color: var(--white);
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .newsletter button:hover {
+            background-color: rgb(22, 96, 187);
+        }
+
+        .input-box {
+            margin-bottom: 1.5rem;
+        }
+
+        .input-box p {
+            color: var(--white);
+            margin-bottom: 0.5rem;
+        }
+
+        .input-box a {
+            color: rgb(22, 96, 187);
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .input-box a:hover {
+            color: rgb(22, 96, 187);
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+        }
+
+        .footer-bottom a {
+            color: rgb(231, 234, 237);
+            transition: var(--transition);
+            text-align: center;
+            margin-right: 50px;
+            font-size: 10px;
+        }
+        .footer-bottom p {
+            color: rgb(231, 234, 237);
+            transition: var(--transition);
+            text-align: center;
+            margin-left: 500px;
+            font-size: 14px;
+        }
+
+        .footer-bottom a:hover {
+            color: var(--accent-orange);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .first-section,
+            .coming-soon-section,
+            .Why-us,
+            .faq-section,
+            #testimonials,
+            footer {
+                padding: 4rem 5%;
+            }
+            
+            .testimonial-card {
+                width: 200px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            header {
+                padding: 1rem 5%;
+            }
+            
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                flex-direction: column;
+                background-color: var(--white);
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+                padding: 2rem 0;
+            }
+            
+            .nav-menu.active {
+                left: 0;
+            }
+            
+            .nav-menu li {
+                margin: 1.5rem 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .first-section {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .second-section-left {
+                padding-right: 0;
+            }
+            
+            .health-calulator-bottom {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            
+            .health-calculator-bottom-center {
+                order: -1;
+            }
+            
+            .faq-section {
+                grid-template-columns: 1fr;
+            }
+            
+            .faq-section-left h2 {
+                position: static;
+                margin-bottom: 2rem;
+            }
+            
+            .footer-upper {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            h2 {
+                font-size: 2rem;
+            }
+            
+            .second-section-left h2 {
+                font-size: 2.5rem;
+            }
+            
+            .testimonial-section h2 {
+                font-size: 2.5rem;
+            }
+            
+            .health-calculator-bottom-left,
+            .health-calculator-bottom-right {
+                grid-template-columns: 1fr;
+            }
+            
+            .testimonial-container {
+                height: auto;
+                display: flex;
+                flex-direction: column;
+                gap: 2rem;
+            }
+            
+            .testimonial-card {
+                position: static;
+                width: 100%;
+            }
+            
+            .testimonial-line {
+                display: none;
+            }
+            
+            .footer-bottom {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .first-section,
+            .coming-soon-section,
+            .Why-us,
+            .faq-section,
+            #testimonials,
+            footer {
+                padding: 3rem 5%;
+            }
+            
+            .coming-soon-section {
+                flex-direction: column;
+                gap: 2rem;
+                text-align: center;
+            }
+            
+            .second-section-right {
+                grid-template-columns: 1fr;
+                grid-template-rows: repeat(5, 200px);
+            }
+            
+            .wellbeing-card {
+                grid-column: 1;
+                grid-row: 2;
+            }
+            
+            .health-card:nth-child(3) {
+                grid-column: 1;
+                grid-row: 3;
+            }
+            
+            .yoga-card {
+                grid-column: 1;
+                grid-row: 4;
+            }
+            
+            .care-card {
+                grid-column: 1;
+                grid-row: 5;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Added Navigation Header -->
+    <header>
+        <a href="#" class="logo">
+            <img src="/static/output-onlinepngtools.png" alt="Logo">
+        </a>
+        <ul class="nav-menu">
+            <li><a href="#aboutSection" class="active">About</a></li>
+            <li><a href="#servicesSection">Services</a></li>
+            <li><a href="#whyUsSection">Why Us</a></li>
+            <li><a href="#faqSection">FAQ</a></li>
+            <li><a href="#testimonials">Testimonials</a></li>
+            <li><a href="#contactSection">Contact</a></li>
+        </ul>
+        <button onclick="logoutUser()" class="logout-btn">Logout</button>
+        <script>
+            function logoutUser() {
+                fetch("{{ url_for('logout') }}")
+                    .then(response => {
+                        if (response.redirected) {
+                            window.location.href = response.url; // Redirect to login page
+                        }
+                    })
+                    .catch(error => console.error("Logout failed:", error));
+            }
+        </script>
+        
+        <div class="mobile-menu-btn">&#9776;</div>
+    </header>
+    
+    <div class="landing-section" id="home">
+        <div class="landing-section-left">
+            <h1>Discover your health, guided by our vision for a <span>Healthier</span> you. </h1>
+            <div class="landing-section-content">
+                <p>Welcome to Sanjeevani! let's dive into this transformative platform of healthcare and modified dietplan. Your health is our priority, and we're here to keep you one step ahead with personalized diet plans, easy access to doctors, and everything you need for a healthier tomorrow. Let's make health a priority through mindfulness and trust.</p>
+                <a href="" class="btn-a">Demo Now</a>
+            </div>
+        </div>
+        <div class="landing-section-right">
+            <img src="/static/pexels-shkrabaanthony-5214989.jpg" alt="">
+        </div>
+    </div>
+    <script>
+        // Your JavaScript code here
+        document.addEventListener('DOMContentLoaded', function() {
+            const landingAnimationSection = document.querySelector('.landing-animation-section');
+            const landingImages = landingAnimationSection.querySelectorAll('.landing-image');
+
+            // Initially hide all images
+            landingImages.forEach((img, index) => {
+                img.style.opacity = '0';
+                img.style.transform = 'translateX(-50px)';
+                img.style.transition = 'opacity 0.5s, transform 0.5s';
+            });
+
+            // Function to show images sequentially
+            function showImagesSequentially() {
+                landingImages.forEach((img, index) => {
+                    setTimeout(() => {
+                        img.style.opacity = '1';
+                        img.style.transform = 'translateX(0)';
+                    }, index * 3000); // 3-second interval between images
+                });
+            }
+
+            // Start the animation
+            showImagesSequentially();
+        });
+    </script>
+
+    <!-- Modules section starts from here-->
+    <div class="section-title">
+        <h2>Our Healthcare Services</h2>
+    </div>     
+    <div class="primary-modules">
+        <!-- EHR Module -->
+        <div class="module-card highlighted">
+            <div class="pulse"></div>
+            <div class="module-img">
+                <img src="/static/pexels-pixabay-40568.jpg" alt="Electronic Health Records">
+            </div>
+            <div class="module-content">
+                <h3 class="module-title">Electronic Health Records</h3>
+                <p class="module-desc">Secure and accessible electronic health records to manage your medical history, prescriptions, and test results.</p>
+                <div class="btn-container">
+                    <a href="ehr" class="module-btn">Dashboard</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Disease Prediction Module -->
+        <div class="module-card highlighted">
+            <div class="pulse"></div>
+            <div class="module-img">
+                <img src="/static/pexels-cristian-rojas-8460126.jpg" alt="Disease Prediction">
+            </div>
+            <div class="module-content">
+                <h3 class="module-title">Disease Prediction</h3>
+                <p class="module-desc">AI-powered disease prediction tools to identify potential health risks based on your medical data and lifestyle.</p>
+                <a href="/prediction" class="module-btn">Check Risks</a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Secondary Modules Section -->
+    <div class="secondary-modules">
+        <!-- Find Doctor Module -->
+        <div class="module-card highlighted">
+            <div class="module-img">
+                <img src="/static/FD.jpg" alt="Find Doctor">
+            </div>
+            <div class="module-content">
+                <h3 class="module-title">Find Doctor</h3>
+                <p class="module-desc">Easily search and connect with healthcare professionals based on specialty, location, and availability.</p>
+                <a href="/find_doctor" class="module-btn">Find Specialists</a>
+            </div>
+        </div>
+        
+        <!-- Diet Recommendation Module -->
+        <div class="module-card highlighted floating">
+            <div class="pulse"></div>
+            <div class="module-img">
+                <img src="/static/pexels-olly-3791664.jpg" alt="Diet Recommendation">
+            </div>
+            <div class="module-content">
+                <h3 class="module-title">Diet Recommendation</h3>
+                <p class="module-desc">Personalized nutrition plans tailored to your health goals, dietary preferences, and medical conditions.</p>
+                <a href="diet" class="module-btn">Get Diet Plan</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Animation for cards on scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.module-card');
+            
+            // Simple animation on hover
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-10px)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+                
+                // Reset floating animation cards
+                if (card.classList.contains('floating')) {
+                    card.addEventListener('mouseleave', function() {
+                        // Allow the floating animation to continue
+                        this.style.animation = 'floating 3s ease-in-out infinite';
+                    });
+                }
+            });
+        });
+    </script>
+
+    <div class="first-section" id="aboutSection">
+        <div class="second-section-left" id="left-section">
+            <h4>/What We Do</h4>
+            <h2>The Sanjeevani Collective</h2>
+            <p>At Sanjeevani, we believe in the transformative power of healthcare and management to keep our body safe and be precautionary beforhand. Apart from this we also do believe in the power of technology to revolutionize healthcare. Our mission is to provide cutting-edge tools that enable better health outcomes for everyone.Founded with a passion for spreading the awareness among the individuals on their journey towards holistic well-being and self-discovery.</p>
+            <button class="btn-a white-btn" id="expand-button">Explore Categories</button>
+        </div>
+        <div class="second-section-right" id="right-section">
+            <div class="health-card">
+                <img src="/static/91e4a1ddcc2a95f828d0896305e433c3.jpg" alt="">
+            </div>
+            <div class="wellbeing-card">
+                <img src="/static/0658fcf81854fdd72b66eb4810386116.jpg" alt="">
+            </div>
+            <div class="health-card">
+                <img src="/static/752bcfe054d7d4f7f95cf76be81ae8f1.jpg" alt="">
+            </div>
+            <div class="yoga-card">
+                <img src="/static/pexels-cottonbro-5721671.jpg" alt="">
+            </div>
+            <div class="care-card">
+                <img src="/static/pexels-cristian-rojas-8460085.jpg" alt="">
+            </div>
+        </div>
+    </div>
+    
+    <div class="Why-us">
+        <div class="Why-us">
+            <h4>/One Step Towards Health</h4>
+            <h2>Why Choose Us?</h2>
+        </div>
+        <div class="health-calulator-bottom">
+            <div class="health-calculator-bottom-left">
+                <div class="feature-card" id="featureCard3">
+                    <div class="feature-card-top">
+                        <img src="/static/o_bg-remover-gen_2tfsLgsd0YtNJ4I8sn5ePvoE65u.png" alt="">
+                        <h4>Feature 1</h4>
+                    </div>
+                    <div class="feature-card-bottom">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae eveniet laborum sapiente illum nulla veritatis totam officia? Nemo, nulla soluta.</p>
+                    </div>
+                </div>
+                <div class="feature-card" id="featureCard4">
+                    <div class="feature-card-top">
+                        <img src="/static/o_bg-remover-gen_2tfsLgsd0YtNJ4I8sn5ePvoE65u.png" alt="">
+                        <h4>Feature 2</h4>
+                    </div>
+                    <div class="feature-card-bottom">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae eveniet laborum sapiente illum nulla veritatis totam officia? Nemo, nulla soluta.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="health-calculator-bottom-center">
+                <img src="/static/health-calculator.png" alt="">
+            </div>
+            <div class="health-calculator-bottom-right">
+                <div class="feature-card" id="featureCard5">
+                    <div class="feature-card-top">
+                        <img src="/static/o_bg-remover-gen_2tfsLgsd0YtNJ4I8sn5ePvoE65u.png" alt="">
+                        <h4>Feature 3</h4>
+                    </div>
+                    <div class="feature-card-bottom">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae eveniet laborum sapiente illum nulla veritatis totam officia? Nemo, nulla soluta.</p>
+                    </div>
+                </div>
+                <div class="feature-card" id="featureCard6">
+                    <div class="feature-card-top">
+                        <img src="/static/o_bg-remover-gen_2tfsLgsd0YtNJ4I8sn5ePvoE65u.png" alt="">
+                        <h4>Feature 4</h4>
+                    </div>
+                    <div class="feature-card-bottom">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae eveniet laborum sapiente illum nulla veritatis totam officia? Nemo, nulla soluta.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    
+
+            
+    <div class="faq-section">
+        <div class="faq-section-left">
+            <h2>FAQ's {Frequently Asked Questions}</h2>
+        </div>
+        <div class="faq-section-right">
+            <div class="faq-container">
+                <div class="faq">
+                    <div class="faq-question">
+                        <span>Why should we use Sanjeevani?</span>
+                        <span class="arrow">&#x2193;</span>
+                    </div>
+                    <div class="faq-answer">
+            Sanjeevani can help you by managing your health effectively by providing personalized plans, real-time monitoring, and promoting healthy habits.
+                    </div>
+                </div>
+        
+                <div class="faq">
+                    <div class="faq-question">
+                        <span>How can I contact Aruyog?</span>
+                        <span class="arrow">&#x2193;</span>
+                    </div>
+                    <div class="faq-answer">
+                        You can contact us via our website or email at support@sanjeevani.com.
+                    </div>
+                </div>
+        
+                <div class="faq">
+                    <div class="faq-question">
+                        <span>Do you offer custom web development?</span>
+                        <span class="arrow">&#x2193;</span>
+                    </div>
+                    <div class="faq-answer">
+                        Yes, we provide fully customized web development services tailored to your needs.
+                    </div>
+                </div>
+        
+                <div class="faq">
+                    <div class="faq-question">
+                        <span>How can I contact Aruyog?</span>
+                        <span class="arrow">&#x2193;</span>
+                    </div>
+                    <div class="faq-answer">
+                        You can contact us via our website or email at support@codevire.com.
+                    </div>
+                </div>
+        
+                <div class="faq">
+                    <div class="faq-question">
+                        <span>Do you offer custom web development?</span>
+                        <span class="arrow">&#x2193;</span>
+                    </div>
+                    <div class="faq-answer">
+                        Yes, we provide fully customized web development services tailored to your needs.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Testimonials Section -->
+        <main>
+            <section id="testimonials">
+                <div class="testimonial-section">
+                    <h2>User Testimonials</h2>
+                    <p>At our healthcare and management center, patient satisfaction is our top priority.</p>
+                    <img src="/static/vecteezy_dashed-line-arrow_9836454.png" alt="" class="testimonial-line">
+            
+                    <div class="testimonial-container">
+                        <div class="testimonial-card" id="testimonialCard1" style="top: 60%; left: 40%;">
+                            <img src="/static/7330d48dd83ef5a2555eb907fa74efc0.jpg" alt="Customer 1">
+                            <div class="testimonial-box">"Very Effective Diet plan! The nutrition program has helped me achieve remarkable results. "</div>
+                        </div>
+                
+                        <div class="testimonial-card" id="testimonialCard2" style="top: 75%; left: 68%;">
+                            <img src="/static/0f02992393381c88944f9fbf48416426.jpg" alt="Customer 2">
+                            <div class="testimonial-box">"Highly recommended! The healthcare staff is professional and truly cares about patient well-being. "</div>
+                        </div>
+                
+                        <div class="testimonial-card" id="testimonialCard3" style="top: 85%; left: 5%;">
+                            <img src="/static/e50f2e7dfb9afdcb67d99ce7b65d537f.jpg" alt="Customer 3">
+                            <div class="testimonial-box">"I gained valuable insights!"</div>
+                        </div>
+                
+                        <div class="testimonial-card" id="testimonialCard4" style="top: 75%; left: 20%;">
+                            <img src="/static/72b399698e0467e11bb2e5c7c1e869a3.jpg" alt="Customer 4">
+                            <div class="testimonial-box">"Very well-structured! The healthcare management program is organized efficiently."</div>
+                        </div>
+                        <div class="testimonial-card" id="testimonialCard6" style="top: 20%; left: 50%;">
+                            <img src="/static/7e34d6d67738113fa59f2252a2a8230a.jpg" alt="Customer 6">
+                            <div class="testimonial-box">"BMI is accurate! The health metrics provided gave me an accurate assessment of my body composition."</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="overlay"></div>        
+            </section>
+        </main>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const testimonialCards = document.querySelectorAll('.testimonial-card');
+                const overlay = document.querySelector('.overlay');
+                
+                // Function to close all testimonial boxes
+                function closeAllTestimonials() {
+                    document.querySelectorAll('.testimonial-box').forEach(box => {
+                        box.classList.remove('active');
+                    });
+                    overlay.classList.remove('active');
+                }
+                
+                // Add click event to each testimonial card
+                testimonialCards.forEach(card => {
+                    const img = card.querySelector('img');
+                    const box = card.querySelector('.testimonial-box');
+                    
+                    img.addEventListener('click', function(e) {
+                        e.stopPropagation();
+                        
+                        // If this box is already active, close it
+                        if (box.classList.contains('active')) {
+                            closeAllTestimonials();
+                            return;
+                        }
+                        
+                        // Close all testimonials first
+                        closeAllTestimonials();
+                        
+                        // Then open this one
+                        box.classList.add('active');
+                        overlay.classList.add('active');
+                    });
+                });
+                
+                // Close testimonial when clicking outside
+                overlay.addEventListener('click', closeAllTestimonials);
+                
+                // Close testimonial when pressing ESC key
+                document.addEventListener('keydown', function(e) {
+                    if (e.key === 'Escape') {
+                        closeAllTestimonials();
+                    }
+                });
+            });
+        </script>
+
+
+    <footer>
+        <!-- Upper Section -->
+        <div class="footer-upper">
+            <!-- Column 3: Resources -->
+            <div class="footer-column">
+                <h3>Support</h3>
+                <ul>
+                    <li><a href="#">FAQs</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">Testimonials</a></li>
+                </ul>
+            </div>
+    
+            <!-- Column 4: Newsletter Subscription -->
+            <div class="footer-column newsletter">
+                <h3>Newsletter</h3>
+                <div class="subscribe">
+                    <input type="email" placeholder="Enter your email">
+                    <button type="submit" class="btn-a orange-btn">&rAarr;</button>
+                </div>
+                <div class="input-box">
+                    <p>Having a question or feedback ? Reach out below</p>
+                    <a href="">support@sanjeevani.com</a>
+                </div>
+                <div class="input-box">
+                    <p>Give us a call</p>
+                    <a href="">+91 123 456 7890</a>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Bottom Section -->
+        <div class="footer-bottom">
+            <p>&copy; 2025 Health Management System. All rights reserved.</p>
+            <a href="#">Terms & Conditions</a>
+        </div>
+    </footer>
+</body>
+
+</html>

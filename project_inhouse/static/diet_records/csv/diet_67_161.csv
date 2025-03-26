@@ -1,0 +1,15 @@
+Meal,Food Item,Calories,Nutrients
+Breakfast,Idli (2 pieces),150,Carbohydrates, Protein, Calcium
+Breakfast,Sambar (1 cup),100,Protein, Vitamins, Minerals
+Breakfast,Chutney (1 tbsp),20,Carbohydrates, Vitamins
+Lunch,Rice (1 cup),200,Carbohydrates
+Lunch,Sambar (1 cup),100,Protein, Vitamins, Minerals
+Lunch,Rasam (1/2 cup),50,Vitamins, Minerals
+Lunch,Curd Rice (1/2 cup),100,Protein, Calcium
+Lunch,Chicken Curry (1/2 cup),200,Protein, Fat, Vitamins
+Dinner,Chapati (2),200,Carbohydrates
+Dinner,Chicken Stir Fry (1 cup),250,Protein, Fat, Vitamins
+Dinner,Mixed Vegetable Salad (1 cup),50,Vitamins, Minerals, Fiber
+""
+""
+"**Note:**  Calorie counts are approximate and can vary based on ingredients and portion sizes.  The ""Nutrients"" column is a simplified representation and doesn't list all the nutrients present.  A more detailed nutritional breakdown would require specific recipes and ingredient information.  This meal plan is a suggestion and should be adjusted based on individual dietary needs and preferences.  Consider adding more fruits and vegetables for a balanced diet."

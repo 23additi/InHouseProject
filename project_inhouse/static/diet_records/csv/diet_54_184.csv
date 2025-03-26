@@ -1,0 +1,51 @@
+Meal,Food Item,Calories,Nutrients
+""
+""
+**7-Day Vegetarian North Indian Meal Plan**
+""
+| Day | Breakfast             | Lunch                  | Dinner                 |
+|-----|------------------------|-------------------------|------------------------|
+| 1   | Poha                  | Dal Makhani, Roti       | Aloo Gobi, Jeera Rice |
+| 2   | Besan Chilla          | Rajma Chawal             | Palak Paneer, Roti     |
+| 3   | Upma                  | Vegetable Biryani       | Chana Masala, Roti    |
+| 4   | Paratha (Aloo/Gobi) | Chole Bhature            | Baingan Bharta, Roti   |
+| 5   | Idli Sambar           | Paneer Tikka Masala, Roti | Vegetable Pulao        |
+| 6   | Suji Halwa            | Mix Vegetable Curry, Roti | Malai Kofta, Naan     |
+| 7   | Vegetable Omelette    | Dal Tadka, Roti         | Aloo Matar, Jeera Rice |
+""
+""
+**CSV Data (Food Items)**
+""
+This data is highly simplified and does not include all nutrients.  Accurate nutrient information requires specialized software.
+""
+""
+""
+Meal,Food Item,Calories,Nutrients
+Breakfast,Poha,200,Carbohydrates, Protein
+Breakfast,Besan Chilla,250,Protein, Carbohydrates
+Breakfast,Upma,220,Carbohydrates
+Breakfast,Paratha (Aloo/Gobi),300,Carbohydrates,Fat,Protein
+Breakfast,Idli Sambar,280,Protein, Carbohydrates
+Breakfast,Suji Halwa,350,Carbohydrates, Sugar
+Breakfast,Vegetable Omelette,200,Protein, Fat
+Lunch,Dal Makhani,250,Protein, Carbohydrates
+Lunch,Roti,100,Carbohydrates
+Lunch,Rajma Chawal,350,Protein, Carbohydrates
+Lunch,Vegetable Biryani,300,Carbohydrates
+Lunch,Chole Bhature,450,Carbohydrates,Protein,Fat
+Lunch,Paneer Tikka Masala,300,Protein, Fat
+Lunch,Mix Vegetable Curry,150,Vitamins, Minerals
+Lunch,Dal Tadka,180,Protein, Carbohydrates
+Dinner,Aloo Gobi,200,Carbohydrates,Protein
+Dinner,Jeera Rice,200,Carbohydrates
+Dinner,Palak Paneer,250,Protein, Vitamins
+Dinner,Chana Masala,220,Protein, Carbohydrates
+Dinner,Baingan Bharta,180,Carbohydrates
+Dinner,Vegetable Pulao,250,Carbohydrates
+Dinner,Malai Kofta,300,Protein, Fat, Carbohydrates
+Dinner,Aloo Matar,200,Carbohydrates,Protein
+""
+""
+""
+""
+Remember to adjust portion sizes to meet your individual calorie needs.  Consult a nutritionist or dietitian for personalized dietary advice.  This is a sample plan and may not be suitable for everyone.  Consider any allergies or dietary restrictions you may have.

@@ -1,0 +1,28 @@
+Meal,Food Item,Calories,Nutrients
+""
+""
+""
+Meal,Food Item,Calories (approx.),Nutrients
+Breakfast,Aloo Paratha (Potato Stuffed Flatbread),300,Carbohydrates, Protein, Fat, Vitamin C, Potassium
+Breakfast,Dahi (Yogurt),150,Protein, Calcium, Probiotics
+Breakfast,Chai (Spiced Tea),50,Antioxidants, Caffeine
+Lunch,Rajma Chawal (Kidney Bean Curry with Rice),450,Protein, Fiber, Iron, Carbohydrates
+Lunch,Cucumber Raita (Yogurt with Cucumber),100,Probiotics, Vitamin C, Hydration
+Lunch,Roti (Whole Wheat Flatbread),100,Carbohydrates, Fiber
+Dinner,Paneer Bhurji (Scrambled Paneer),250,Protein, Calcium, Fat
+Dinner,Mixed Vegetable Sabzi (Vegetable Curry),150,Fiber, Vitamins, Minerals
+Dinner,Roti (Whole Wheat Flatbread),100,Carbohydrates, Fiber
+Dinner,Gajar ka Halwa (Carrot Pudding - small portion),150,Carbohydrates, Vitamin A, Sugar
+""
+""
+""
+**Note:**
+""
+* **Calories** are approximate and can vary significantly depending on the ingredients and portion sizes.
+* **Nutrients** are a general indication and don't include all micronutrients present.
+* This meal plan is a suggestion and can be adjusted based on individual dietary needs and preferences.
+* Consider adding a variety of fruits and vegetables throughout the day for optimal nutrition.
+* Portions should be adjusted based on individual caloric needs and activity levels.  This plan might be suitable for moderate activity levels.
+"*  ""Small portion"" for Gajar ka Halwa is crucial to manage sugar intake."
+""
+This CSV data can be easily imported into spreadsheet software for further analysis or manipulation.  Remember to consult a nutritionist or dietician for personalized dietary advice.

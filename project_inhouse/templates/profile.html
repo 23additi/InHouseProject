@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-image: url('/static/image.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+        }
+
+        .container {
+            display: flex;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+            max-width: 550px;
+            width: 90%;
+            height: auto;
+            padding: 30px;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .form-section h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #1e90ff;
+        }
+
+        .form-section label {
+            font-size: 14px;
+            display: block;
+            margin-top: 10px;
+            text-align: left;
+            color: #333;
+        }
+
+        .form-section input, .form-section select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .form-section button {
+            background: #1e90ff;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+            margin-top: 15px;
+            width: 100%;
+        }
+
+        .form-section button:hover {
+            background: #0a74da;
+        }
+    </style>
+    <body>
+        <div class="container">
+            <div class="form-section">
+                <h2>Profile</h2>
+                <form id="profile-form" action="/update_profile" method="POST">
+    <label for="gender">Gender:</label>
+    <select id="gender" name="gender">
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+        <option value="Other">Other</option>
+    </select>
+
+    <label for="height">Height (cm):</label>
+    <input type="number" id="height" name="height" required>
+
+    <label for="weight">Weight (kg):</label>
+    <input type="number" id="weight" name="weight" required>
+
+    <label for="city">City:</label>
+    <input type="text" id="city" name="city" required>
+
+    <label for="state">State:</label>
+    <input type="text" id="state" name="state" required>
+
+    <button type="submit">Update Profile</button>
+</form>
+                
+                <p id="success-message" class="success-message"></p>
+            </div>
+        </div>
+    
+        <!-- <script>
+            document.getElementById("updateProfileBtn").addEventListener("click", function(event) {
+    event.preventDefault();
+
+    let height = document.getElementById("height").value;
+    let weight = document.getElementById("weight").value;
+    let city = document.getElementById("city").value;
+    let state = document.getElementById("state").value;
+
+    fetch("/update_profile", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"  // ✅ Set correct header
+        },
+        body: JSON.stringify({
+            height: height,
+            weight: weight,
+            city: city,
+            state: state
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            alert(data.message);
+            window.location.href = "/";  // Redirect to home after successful update
+        } else {
+            alert("Error: " + data.message);
+        }
+    })
+    .catch(error => console.error("Error:", error));
+});
+
+        </script> -->
+            
+            
+</body>
+     <script>
+        document.addEventListener("DOMContentLoaded", function () {
+    const profileForm = document.getElementById("profile-form");
+
+    if (!profileForm) {
+        console.error("Profile form not found!");
+        return;
+    }
+
+    profileForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        const getValue = (id) => {
+            const element = document.getElementById(id);
+            return element ? element.value.trim() : null;
+        };
+
+        const profileData = {
+            gender: getValue("gender"),
+            height: getValue("height"),
+            weight: getValue("weight"),
+            city: getValue("city"),
+            state: getValue("state")
+        };
+
+        fetch('http://127.0.0.1:5000/update_profile', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(profileData)
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                alert("Profile updated successfully!");
+                window.location.href ="/home";
+            } else {
+                console.error("Error updating profile:", data.message);
+            }
+        })
+        .catch(error => console.error("Error:", error));
+    });
+});
+
+// document.getElementById("updateProfileForm").addEventListener("submit", function(event) {
+//     event.preventDefault(); // Prevent default form submission
+
+//     let formData = {
+//         gender: document.getElementById("gender").value,
+//         height: document.getElementById("height").value,
+//         weight: document.getElementById("weight").value,
+//         city: document.getElementById("city").value,
+//         state: document.getElementById("state").value
+//     };
+
+//     fetch("/update_profile", {
+//         method: "POST",
+//         headers: {
+//             "Content-Type": "application/json"
+//         },
+//         body: JSON.stringify(formData)
+//     })
+//     .then(response => response.json())  // ✅ Parse JSON response
+//     .then(data => {
+//         if (data.success) {
+//             alert(data.message);  // ✅ Show success message
+//             window.location.href = data.redirect;  // ✅ Redirect to homepage
+//         } else {
+//             alert("Error: " + data.message);  // ✅ Show error message
+//         }
+//     })
+//     .catch(error => console.error("Error:", error));
+// });
+
+
+
+
+    </script>
+    
+</head>
+<body>
+    <!-- <div class="container">
+        <div class="form-section">
+            <h2>Profile</h2>
+            <form onsubmit="saveProfile(event)">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" value="{{ profile['full_name'] if profile else '' }}" required>
+
+                <label for="dob">Date of Birth:</label>
+                <input type="date" id="dob" name="dob" value="{{ profile['dob'] if profile else '' }}" required readonly>
+            
+                <label for="age">Age:</label>
+                <input type="number" id="age" name="age" value="{{ profile['age'] if profile else '' }}" readonly>
+            
+                <label for="gender">Gender:</label>
+                <select id="gender" name="gender" required>
+                    <option value="Male" {% if profile and profile[4] == 'Male' %}selected{% endif %}>Male</option>
+                    <option value="Female" {% if profile and profile[4] == 'Female' %}selected{% endif %}>Female</option>
+                    <option value="Other" {% if profile and profile[4] == 'Other' %}selected{% endif %}>Other</option>
+                </select>
+            
+                <label for="height">Height (cm):</label>
+                <input type="number" id="height" name="height" value="{{ profile[5] if profile else '' }}" required>
+            
+                <label for="weight">Weight (kg):</label>
+                <input type="number" id="weight" name="weight" value="{{ profile[6] if profile else '' }}" required>
+            
+                <button type="submit">Update Profile</button>
+            </form>
+            <p id="success-message" class="success-message"></p>
+        </div>
+    </div>
+</body>  -->
+</html>

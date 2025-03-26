@@ -1,0 +1,15 @@
+Meal,Food Item,Calories,Nutrients
+Breakfast,Aloo Paratha (2),400,Carbohydrates, Protein, Fat, Fiber, Vitamin C, Iron
+Breakfast,Dahi (1 cup),150,Protein, Calcium, Vitamin B12
+Breakfast,Chai (1 cup),80,Caffeine, Antioxidants
+Lunch,Rajma Chawal (1.5 cups),450,Protein, Carbohydrates, Fiber, Iron
+Lunch,Roti (2),200,Carbohydrates, Fiber
+Lunch,Pickle (1 tbsp),10,Sodium, Vitamins
+Lunch,Salad (Cucumber, Tomato),50,Vitamins, Minerals, Fiber
+Dinner,Chicken Curry (1.5 cups),350,Protein, Fat, Vitamins, Minerals
+Dinner,Jeera Rice (1 cup),200,Carbohydrates
+Dinner,Raita (1/2 cup),100,Protein, Calcium, Vitamins
+Dinner,Papad (1),40,Carbohydrates, Fiber
+""
+""
+"**Note:**  Calorie counts are approximate and can vary based on ingredients and portion sizes.  The ""Nutrients"" column provides a general overview;  a complete nutritional breakdown would be far more extensive.  This meal plan is a suggestion and individual needs may vary.  Consult a nutritionist for personalized dietary advice."
